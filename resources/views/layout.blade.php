@@ -331,41 +331,46 @@
 				var cart_product_name = $('.cart_product_name_' + id).val();
 				var cart_product_image = $('.cart_product_image_' + id).val();
 				var cart_product_price = $('.cart_product_price_' + id).val();
+				var cart_product_quantity = $('.cart_product_quantity_' + id).val();
 				var cart_product_qty = $('.cart_product_qty_' + id).val();
 				var cart_category_product = $('.cart_category_product_' + id).val();
 				var cart_brand_product = $('.cart_brand_product_' + id).val();
-				var cart_product_quantity_inventory = $('.cart_product_quantity_inventory_' + id).val();
 				var _token = $('input[name="_token"]').val();
-				$.ajax({
-					url: "{{url('/add-cart-ajax')}}",
-					method: 'POST',
-					data: {
-						cart_product_id: cart_product_id,
-						cart_product_name: cart_product_name,
-						cart_product_image: cart_product_image,
-						cart_product_price: cart_product_price,
-						cart_product_qty: cart_product_qty,
-						cart_category_product: cart_category_product,
-						cart_brand_product: cart_brand_product,
-						cart_product_quantity_inventory: cart_product_quantity_inventory,
-						_token: _token
-					},
-					success: function(data) {
-						swal({
-								title: "Sản phẩm đã được thêm vào giỏ hàng",
-								text: "   ",
-								imageUrl: "{{URL::to('/public/frontend/images/cart/check.png')}}",
-								showCancelButton: true,
-								cancelButtonText: "Mua tiếp",
-								confirmButtonClass: "bg-success text-white",
-								confirmButtonText: "Xem giỏ hàng",
-								closeOnConfirm: false
-							},
-							function() {
-								window.location.href = "{{url('/your-cart')}}";
-							});
-					}
-				});
+
+				if (parseInt(cart_product_qty) > parseInt(cart_product_quantity)) {
+					alert("Số lượng bạn đặt đã vượt quá số lượng trong kho của chúng tôi");
+				} else {
+					$.ajax({
+						url: "{{url('/add-cart-ajax')}}",
+						method: 'POST',
+						data: {
+							cart_product_id: cart_product_id,
+							cart_product_name: cart_product_name,
+							cart_product_image: cart_product_image,
+							cart_product_price: cart_product_price,
+							cart_product_qty: cart_product_qty,
+							cart_category_product: cart_category_product,
+							cart_brand_product: cart_brand_product,
+							cart_product_quantity: cart_product_quantity,
+							_token: _token
+						},
+						success: function(data) {
+							swal({
+									title: "Sản phẩm đã được thêm vào giỏ hàng",
+									text: "   ",
+									imageUrl: "{{URL::to('/public/frontend/images/cart/check.png')}}",
+									showCancelButton: true,
+									cancelButtonText: "Mua tiếp",
+									confirmButtonClass: "bg-success text-white",
+									confirmButtonText: "Xem giỏ hàng",
+									closeOnConfirm: false
+								},
+								function() {
+									window.location.href = "{{url('/your-cart')}}";
+								});
+						}
+					});
+				}
 			});
 		});
 	</script>
@@ -475,6 +480,7 @@
 			});
 		});
 	</script>
+
 </body>
 
 </html>

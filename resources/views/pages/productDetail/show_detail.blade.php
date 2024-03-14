@@ -33,11 +33,12 @@
                     <input type="hidden" class="cart_product_id_{{$value->product_id}}" value="{{$value->product_id}}">
                     <input type="hidden" class="cart_product_name_{{$value->product_id}}" value="{{$value->product_name}}">
                     <input type="hidden" class="cart_product_image_{{$value->product_id}}" value="{{$value->product_image}}">
+                    <input type="hidden" class="cart_product_quantity_{{$value->product_id}}" value="{{$value->product_quantity}}">
                     <input type="hidden" class="cart_product_price_{{$value->product_id}}" value="{{$value->product_price}}">
-                    <b class="title-qty">Số lượng:</b><input type="number" class="cart_product_qty_{{$value->product_id}} input-number" value="1" min="1">
                     <input type="hidden" class="cart_category_product_{{$value->product_id}}" value="{{$value->category_name}}">
                     <input type="hidden" class="cart_brand_product_{{$value->product_id}}" value="{{$value->brand_name}}">
-                    <input type="hidden" class="cart_product_quantity_inventory_{{$value->product_id}}" value="{{$value->product_quantity}}">
+
+                    <b class="title-qty">Số lượng:</b><input type="number" class="cart_product_qty_{{$value->product_id}} input-number" value="1" min="1">
                     <span>
                         <button type="button" class="btn add-to-cart" name="add-to-cart" data-id="{{$value->product_id}}">
                             <i class="fa-solid fa-cart-plus"></i>Đặt hàng

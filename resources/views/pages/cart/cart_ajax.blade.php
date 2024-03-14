@@ -10,6 +10,7 @@
 
         if (Session::get('cart') == true) {
         ?>
+
             <div class="row">
                 <a class="col-md-2 continue-shopping" href="{{url('/')}}">
                     <p class="text"><i class="fa-solid fa-arrow-left"></i>&nbsp;Tiếp tục mua sắm</p>
@@ -54,6 +55,7 @@
                                                         <div class="quantity-cart">
                                                             <input class="cart_quantity_input form-control quantity-input" type="number" name="cart_qty[{{$cart['session_id']}}]" value="{{$cart['product_qty']}}" autocomplete="off" min="1">
                                                         </div>
+
                                                     </div>
                                                     <div class="col-md-3 price">
                                                         <span>{{number_format($cart['product_price'],0,',','.')}}đ</span>
@@ -61,11 +63,13 @@
                                                     <div class="col-md-1 price">
                                                         <a href="{{url('/delete-product-cart/'.$cart['session_id'])}}" class="alert-delete"><span class="remove-item"><i class="fa-solid fa-square-minus"></i></span></a>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 @endforeach
                                 <button type="submit" id="updateCartSubmit"></button>
                                 <div class="col-md-2">

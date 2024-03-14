@@ -59,6 +59,7 @@ if (Session::get('fee')) {
         <!-- END - fee_shipping -->
 
         <!-- coupon -->
+
         <div class="row">
             <form action="{{url('/check-coupon')}}" method="post">
                 @csrf
@@ -103,7 +104,6 @@ if (Session::get('fee')) {
                                         <div class="even-info">
                                             <i class="fa-solid fa-circle-dollar-to-slot"></i>
                                             <p>&nbsp;Giảm: {{$cou['coupon_number']}}%</p>
-                                            <span>Áp dụng cho toàn sản phẩm trong giỏ hàng</span>
                                         </div>
                                     </section>
                                 </article>
@@ -128,7 +128,6 @@ if (Session::get('fee')) {
                                         <div class="even-info">
                                             <i class="fa-solid fa-circle-dollar-to-slot"></i>
                                             <p>&nbsp;Giảm: {{number_format($cou['coupon_number'],0,',','.')}}đ</p>
-                                            <span>Áp dụng cho toàn sản phẩm trong giỏ hàng</span>
                                         </div>
                                     </section>
                                 </article>
@@ -148,6 +147,7 @@ if (Session::get('fee')) {
                 ?>
             </form>
         </div>
+
         <!-- END - coupon -->
         <form>
             @csrf
@@ -192,31 +192,10 @@ if (Session::get('fee')) {
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Hình thức thanh toán</label>
-                    <select class="form-select payment_select" name="payment_select" style="width: 360px;">
+                    <select class="form-select payment_select" name="payment_select">
                         <option value="1" selected>Tiền mặt</option>
                         <option value="2">Chuyển khoản</option>
                     </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="cc-name">Tên trên thẻ</label>
-                    <input type="text" class="form-control" placeholder="">
-                    <small class="text-muted">Tên đầy đủ như hiển thị trên thẻ</small>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-number">Số thẻ tín dụng</label>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="cc-expiration">Hết hạn</label>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-cvv">Mã CVV</label>
-                    <input type="text" class="form-control" placeholder="">
                 </div>
             </div>
             <hr class="mb-4">

@@ -3727,7 +3727,7 @@ a:hover {
 
 .card-left button {
   margin-top: -112px;
-  margin-left: 290px;
+  margin-left: 300px;
   border: 1px solid #006666;
   background-color: #006666;
   border-radius: 3px;
@@ -3737,18 +3737,12 @@ a:hover {
 }
 
 .card-left button:hover {
-  margin-top: -112px;
-  margin-left: 290px;
-  border: 1px solid #005858;
   background-color: #005858;
-  border-radius: 3px;
   color: white;
-  padding: 5px;
-  font-size: 16px;
 }
 
 .card-right {
-  margin-left: 22px;
+  float: right;
   margin-bottom: 10px;
 }
 
@@ -3776,6 +3770,10 @@ a:hover {
   -ms-user-select: none !important;
   user-select: none !important;
   color: gray;
+}
+
+.payment_select {
+  width: 100%;
 }
 
 .row:last-child .card:first-child .card-cont a {
